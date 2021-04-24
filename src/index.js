@@ -13,6 +13,7 @@ const createWindow = () => {
     height: 600,
   });
 
+
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
@@ -41,23 +42,6 @@ app.on('activate', () => {
     createWindow();
   }
 });
-const { spawn } = require('child_process');
-
-
-const childPython = spawn('python', ["main.py"]);
-
-childPython.stdout.on('data',(data)=> {
-	console.log(`stdout: ${data}`);
-});
-
-childPython.stderr.on('data', (data) =>{
-	console.log(`stderr: ${data}`);
-});
-
-childPython.on('close', (code) =>{
-	console.log(`child process exited with code ${code}`);
-});
-
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.

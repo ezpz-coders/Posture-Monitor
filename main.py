@@ -3,9 +3,18 @@ import mediapipe as mp
 mp_drawing = mp.solutions.drawing_utils
 mp_holistic = mp.solutions.holistic
 import time
-
+from tkinter import *
+from sys import exit
+from pynotifier import Notification
     
 
+def popupError(s):
+    popupRoot = Tk()
+    popupRoot.after(2000, exit)
+    popupButton = Button(popupRoot, text = s, font = ("Verdana", 12), bg = "yellow", command = exit)
+    popupButton.pack()
+    popupRoot.geometry('400x50+700+500')
+    popupRoot.mainloop()
 
 class Posture:
     def __init__(self):
@@ -29,9 +38,12 @@ def checkPose(currPos,toComp):
     return dis
 
 
-stop = time.time() + 3
+stop = time.time() + 5
+
 
 def mainCheck(nose,ls,rs,toComp):
+   
+        
     global stop
     ndist = checkPose(nose, toComp.nose)
     lsdist = checkPose(ls, toComp.lshold)
@@ -43,19 +55,27 @@ def mainCheck(nose,ls,rs,toComp):
         currposture = "bad"
     elif ndist > 100 or lsdist > 50 or rsdist > 50:
         currposture = "alert"
-        stop += 0.125
+        stop += 0.25
     else:
         currposture = "good"
-        stop += 0.25
+        stop = time.time()+5
         
-    if stop > time.time()+3:
-        stop = time.time()+3
+    if stop > time.time()+5:
+        stop = time.time()+5
         print("exceed")
     
-    #print(currposture)
+    print(currposture)
+    
     if time.time() >= stop:
         print("BAD")
-        stop = time.time() + 3
+        Notification(
+        	title='Check Your Posture',
+        	description='It seems like you are sitting recklessly.',
+        	icon_path='path/to/image/file/icon.png', # On Windows .ico is required, on Linux - .png
+        	duration=1,                              # Duration in seconds
+        	urgency='normal'
+        ).send()
+        stop = time.time() + 5
     
     
     
