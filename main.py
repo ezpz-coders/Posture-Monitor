@@ -13,8 +13,35 @@ class Posture:
         self.isCap = True
 
 
-def checkPose(nose,rsh,lsh,toComp):
-    pass
+def checkPose(currPos,toComp):
+    x1= currPos[0]
+    x2=toComp[0]
+    y1= currPos[1]
+    y2=toComp[1]
+    
+    x = (x2 - x1)**2 
+    y = (y2 - y1)**2
+    
+    dis = (x+y)**0.5
+    
+    return dis
+
+def mainCheck(nose,ls,rs,toComp):
+    
+    ndist = checkPose(nose, toComp.nose)
+    lsdist = checkPose(ls, toComp.lshold)
+    rsdist = checkPose(rs, toComp.rshold)
+    print(ndist,lsdist,rsdist)
+    if ndist > 200 or lsdist > 75 or rsdist > 75:
+        print("bad posture")
+    elif ndist > 100 or lsdist > 50 or rsdist > 50:
+        print("pay attention to your posture")
+        
+    else:
+        print("good posture")
+    
+    
+    
 
 
 
@@ -55,7 +82,7 @@ with mp_holistic.Holistic(
     mp_drawing.draw_landmarks(
         image, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS)
     cv2.imshow('MediaPipe Holistic', image)
-    print("LEFT SHOULDER","RIGHT SHOULDER","NOSE")
+    #print("LEFT SHOULDER","RIGHT SHOULDER","NOSE")
     if results.pose_landmarks:
         cnose = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.NOSE].x * image_width,results.pose_landmarks.landmark[mp_holistic.PoseLandmark.NOSE].y * image_width
         
@@ -63,11 +90,11 @@ with mp_holistic.Holistic(
         
         clshold = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.RIGHT_SHOULDER].x * image_width, results.pose_landmarks.landmark[mp_holistic.PoseLandmark.RIGHT_SHOULDER].y * image_width
         
-        print(clshold,crshold,cnose)
+        #print(clshold,crshold,cnose)
    
     
    
-    print(cposture.lshold,cposture.rshold,cposture.nose)
+    #print(cposture.lshold,cposture.rshold,cposture.nose)
     if cv2.waitKey(1) == ord('c') and cposture.isCap:
         cposture.isCap = False
         cposture.rshold = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.LEFT_SHOULDER].x * image_width,results.pose_landmarks.landmark[mp_holistic.PoseLandmark.LEFT_SHOULDER].y * image_width
@@ -75,7 +102,8 @@ with mp_holistic.Holistic(
         cposture.nose = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.NOSE].x * image_width,results.pose_landmarks.landmark[mp_holistic.PoseLandmark.NOSE].y * image_width
     
     try:
-        checkPose(cnose,crshold,clshold,cposture)
+        mainCheck(cnose,clshold,crshold,cposture)
+        
     except:
         pass
     
