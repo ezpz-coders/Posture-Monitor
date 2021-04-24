@@ -13,6 +13,14 @@ class Posture:
         self.isCap = True
 
 
+def checkPose(nose,rsh,lsh,toComp):
+    pass
+
+
+
+
+
+
 cap = cv2.VideoCapture(0)
 with mp_holistic.Holistic(
     min_detection_confidence=0.5,
@@ -47,16 +55,31 @@ with mp_holistic.Holistic(
     mp_drawing.draw_landmarks(
         image, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS)
     cv2.imshow('MediaPipe Holistic', image)
+    print("LEFT SHOULDER","RIGHT SHOULDER","NOSE")
     if results.pose_landmarks:
-        print("NOSE",results.pose_landmarks.landmark[mp_holistic.PoseLandmark.NOSE].x * image_width)
-      
-        print("RIGHT SHOULDER",results.pose_landmarks.landmark[mp_holistic.PoseLandmark.LEFT_SHOULDER].x * image_width)
-        print("LEFT SHOULDER",results.pose_landmarks.landmark[mp_holistic.PoseLandmark.RIGHT_SHOULDER].x * image_width)
-    print(cposture.rshold,cposture.lshold,cposture.nose)
+        cnose = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.NOSE].x * image_width,results.pose_landmarks.landmark[mp_holistic.PoseLandmark.NOSE].y * image_width
+        
+        crshold = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.LEFT_SHOULDER].x * image_width,results.pose_landmarks.landmark[mp_holistic.PoseLandmark.LEFT_SHOULDER].y * image_width
+        
+        clshold = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.RIGHT_SHOULDER].x * image_width, results.pose_landmarks.landmark[mp_holistic.PoseLandmark.RIGHT_SHOULDER].y * image_width
+        
+        print(clshold,crshold,cnose)
+   
+    
+   
+    print(cposture.lshold,cposture.rshold,cposture.nose)
     if cv2.waitKey(1) == ord('c') and cposture.isCap:
         cposture.isCap = False
-        cposture.rshold = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.LEFT_SHOULDER].x * image_width
-        cposture.lshold = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.RIGHT_SHOULDER].x * image_width
-        cposture.nose = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.NOSE].x * image_width
-        
+        cposture.rshold = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.LEFT_SHOULDER].x * image_width,results.pose_landmarks.landmark[mp_holistic.PoseLandmark.LEFT_SHOULDER].y * image_width
+        cposture.lshold = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.RIGHT_SHOULDER].x * image_width, results.pose_landmarks.landmark[mp_holistic.PoseLandmark.RIGHT_SHOULDER].y * image_width
+        cposture.nose = results.pose_landmarks.landmark[mp_holistic.PoseLandmark.NOSE].x * image_width,results.pose_landmarks.landmark[mp_holistic.PoseLandmark.NOSE].y * image_width
+    
+    try:
+        checkPose(cnose,crshold,clshold,cposture)
+    except:
+        pass
+    
+    if cv2.waitKey(1) == ord('q'):
+         break
+    
 cap.release()
