@@ -1,17 +1,33 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: auto;
-  max-width: 38rem;
+  min-width: 600px;
   padding: 2rem;
-  background-color: #101820FF
-  ;
-  ;
+  background-color: #101820FF;
+  
 }
 h1{
+  text-align: center;
   color:white;
 }
+div.main{
+  width: 100%;
+  position: relative;
+  top: 500px;
+  
+
+}
+div.main div{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: 0 auto; 
+
+}
 button {
-  display: block;
+ 
+  
+  display: inline-block;
   cursor: pointer;
   outline: none;
   border: none;
@@ -28,7 +44,6 @@ button {
 }
 button:hover {
   transform:scale(1.05);
-  display: block;
   cursor: pointer;
   outline: none;
   border: none;
