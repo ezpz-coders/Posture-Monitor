@@ -13,7 +13,7 @@
 
 <h3 align = "center"> Why it is a problem? </h3>
 
-<h4 align = "left">This is a common issue nowadays, most of the work is being done in front of computer screens, sitting for long hours with a bad posture may lead to serious health issues. Apart from that we indulge ourselves to much that we don't even realize our posture.</h4>
+<h4 align = "left">This is a common issue nowadays, most of the work is being done in front of computer screens, sitting for long hours with a bad posture may lead to serious health issues. Apart from that we indulge ourselves too much that we don't even realize our posture.</h4>
 
 <h3 align = "center"> Our Solution </h3>
 <h4 align = "left">We are developing a offline solution which will trigger a notification whenever our posture is bad for more than certain amount of time. So you can easily monitor your posture. You can choose "time" and "strictness" as per your needs</h4>
@@ -35,6 +35,7 @@
 
 <h3 align = "center"> How is works? </h3>
 <h4 align = "left">We initially ask user to sit in ideal posture and then capture their posture points, if user strays from those points for too long then we will trigger notification.</h4>
+
 
 
 
