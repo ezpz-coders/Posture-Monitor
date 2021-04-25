@@ -32,3 +32,27 @@
    
     
 </p>
+
+<h3 align = "center"> How is works? </h3>
+<h4 align = "left">We initially ask user to sit in ideal posture and then capture their posture points, if user strays from those points for too long then we will trigger notification.</h4>
+
+
+
+<h3 align = "center"> Capture points </h3>
+
+<p align = "center">
+<img src = "https://github.com/kaydee0502/Amazo-Hack_Posture-Monitor/blob/main/cap.jpeg?raw=true">
+
+</p>
+
+<h3 align = "center"> Bad posture </h3>
+
+<p align = "center">
+<img src = "https://github.com/kaydee0502/Amazo-Hack_Posture-Monitor/blob/main/bad.jpeg?raw=true">
+
+</p>
+
+<br> 
+
+
+Made with :heart: by team &beta; - ezpz
