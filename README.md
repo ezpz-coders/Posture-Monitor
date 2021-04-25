@@ -19,7 +19,7 @@
 <h4 align = "left">We are developing a offline solution which will trigger a notification whenever our posture is bad for more than certain amount of time. So you can easily monitor your posture. You can choose "time" and "strictness" as per your needs</h4>
 
 <h3 align = "center"> Is it safe? </h3>
-<h4 align = "left">Yes, even though we use webcam to monitor your posture, we do not prompt and online connect and nothing is saved, the variables exist as long as the app it running.</h4>
+<h4 align = "left">Yes, even though we use webcam to monitor your posture, we do not prompt any online connection and nothing is saved locally, the variables exist as long as the app is running.</h4>
 
 <h3 align = "center"> Tech Used </h3>
 
