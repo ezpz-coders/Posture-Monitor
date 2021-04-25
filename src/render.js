@@ -6,6 +6,12 @@ const { exec } = require('child_process');
 const sadge = document.getElementById("sadge");
 startBtn.addEventListener('click', (e) => {
    const fs = require('fs')
+   let strictness = document.getElementById("strictness1").value;
+   let time = document.getElementById("time1").value;
+   data=strictness+" "+time;
+   fs.writeFile('Output.txt', data, (err) => {
+      if (err) throw err;
+   })
 
 
   /**
@@ -13,12 +19,7 @@ startBtn.addEventListener('click', (e) => {
      * @return {ChildProcess}
   */
   function runScript(){
-   let strictness = document.getElementById("strictness1").value;
-   let time = document.getElementById("time1").value;
-   data=strictness+" "+time;
-   fs.writeFile('Output.txt', data, (err) => {
-      if (err) throw err;
-   })
+  
      
      return spawn('python', [
         "-u",
