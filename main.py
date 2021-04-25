@@ -50,15 +50,16 @@ def mainCheck(nose,ls,rs,toComp):
    
         
     global stop
+    global strictness
     ndist = checkPose(nose, toComp.nose)
     lsdist = checkPose(ls, toComp.lshold)
     rsdist = checkPose(rs, toComp.rshold)
     #print(ndist,lsdist,rsdist)
     print(time.time(),stop)
     currposture=None
-    if ndist > 200 or lsdist > 75 or rsdist > 75:
+    if ndist > 200/strictness or lsdist/strictness > 75 or rsdist/strictness > 75:
         currposture = "bad"
-    elif ndist > 100 or lsdist > 50 or rsdist > 50:
+    elif ndist/strictness > 100 or lsdist/strictness > 50 or rsdist/strictness > 50:
         currposture = "alert"
         stop += 0.25
     else:
