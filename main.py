@@ -6,6 +6,11 @@ import time
 from tkinter import *
 from sys import exit
 from pynotifier import Notification
+
+file = open('Output.txt', 'r')
+for each in file:
+    strictness , t1=map(float,each.split())
+
     
 
 def popupError(s):
@@ -38,7 +43,7 @@ def checkPose(currPos,toComp):
     return dis
 
 
-stop = time.time() + 5
+stop = time.time() + t1
 
 
 def mainCheck(nose,ls,rs,toComp):
@@ -58,11 +63,11 @@ def mainCheck(nose,ls,rs,toComp):
         stop += 0.25
     else:
         currposture = "good"
-        stop = time.time()+5
+        stop = time.time()+t1
         
-    if stop > time.time()+5:
-        stop = time.time()+5
-        print("exceed")
+    if stop > time.time()+t1:
+        stop = time.time()+t1
+        # print("exceed")
     
     print(currposture)
     
@@ -72,10 +77,10 @@ def mainCheck(nose,ls,rs,toComp):
         	title='Check Your Posture',
         	description='It seems like you are sitting recklessly.',
         	icon_path='path/to/image/file/icon.png', # On Windows .ico is required, on Linux - .png
-        	duration=1,                              # Duration in seconds
+        	duration=2,                              # Duration in seconds
         	urgency='normal'
         ).send()
-        stop = time.time() + 5
+        stop = time.time() + t1
     
     
     

@@ -3,13 +3,23 @@ const {spawn} = require('child_process')
 const startBtn = document.getElementById('Start')
 const {oks}= require('electron');
 const { exec } = require('child_process');
+const sadge = document.getElementById("sadge");
 startBtn.addEventListener('click', (e) => {
+   const fs = require('fs')
+
 
   /**
      * Run python myscript, pass in `-u` to not buffer console output
      * @return {ChildProcess}
   */
   function runScript(){
+   let strictness = document.getElementById("strictness1").value;
+   let time = document.getElementById("time1").value;
+   data=strictness+" "+time;
+   fs.writeFile('Output.txt', data, (err) => {
+      if (err) throw err;
+   })
+     
      return spawn('python', [
         "-u",
         path.join(__dirname, '../main.py'),
@@ -19,7 +29,7 @@ startBtn.addEventListener('click', (e) => {
   const subprocess = runScript()
   // print output of script
   subprocess.stdout.on('data', (data) => {
-     console.log(`data:${data}`);
+     sadge.innerHTML=`data:${data}`;
   });
   subprocess.stderr.on('data', (data) => {
      console.log(`error:${data}`);

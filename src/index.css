@@ -22,7 +22,7 @@ div.main div{
   display: flex;
   justify-content: space-between;
   width: 50%;
-  margin: 0 auto; 
+  margin-left: 850px;
 
 }
 button {
@@ -33,8 +33,8 @@ button {
   outline: none;
   border: none;
   background-color: #F2AA4CFF;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 200px;
   font-size: 1.5rem;
   font-weight: 600;
@@ -42,6 +42,7 @@ button {
   background-size: 100% 100%;
   /* box-shadow: #a677db; */
   margin-bottom: 15px;
+  
 }
 button:hover {
   transform:scale(1.05);
@@ -49,8 +50,8 @@ button:hover {
   outline: none;
   border: none;
   background-color: #F2AA4CFF;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 200%;
   font-size: 1.5rem;
   font-weight: 600;
@@ -58,14 +59,14 @@ button:hover {
   background-size: 100% 100%;
   /* box-shadow: # a677db; */
   margin-bottom: 15px;
-
+  
 }
 .slidecontainer {
   width: 100%;
 }
 .slider.one{
   position: absolute;
-  bottom: 60%;
+  bottom: 220%;
   right: 60%;
 }
 
@@ -157,14 +158,14 @@ button:hover {
 #time{
   font-size: 2em;
   position: absolute;
-  bottom: 350%;
+  bottom: 250%;
   right: 72%;
 
 }
 #strict{
   font-size: 2em;
   position: absolute;
-  bottom: 350%;
+  bottom: 250%;
   left: 70%;
 
 }
