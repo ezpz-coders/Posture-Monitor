@@ -13,6 +13,9 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: "./src/yolo.ico",
+    title: "Posture Monitor",
+    autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -55,3 +58,6 @@ app.on("activate", () => {
     createWindow();
   }
 });
+try {
+  require("electron-reloader")(module);
+} catch (_) {}

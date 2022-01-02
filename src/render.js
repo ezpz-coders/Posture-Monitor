@@ -42,7 +42,7 @@ startBtn.addEventListener("click", (e) => {
         shell.openExternal("https://medlineplus.gov/guidetogoodposture.html");
       };
     }
-    sadge.innerHTML = `data:${data}`;
+    sadge.innerHTML = `${data}`;
   });
   subprocess.stderr.on("data", (data) => {
     console.log(`error:${data}`);
