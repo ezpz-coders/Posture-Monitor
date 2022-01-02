@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Hello World!</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-
-    <h1 style="color:#F2AA4CFF ;">{Amaz-O-Hack}</h1>
-    <div class="main">  
-    <div><button id="Start">Start</button>
-    <!-- <button id="Stop">Stop</button></div> -->
-    <p id="time">Time</p>
-    <p id="strict">Strictness</p> 
-    <p id = "sadge"></p>
-    </div> 
-    <div class="slidecontainer">
-      <input id="strictness1" type="range" min="1" max="2" value="1.5" step="0.2" class="slider one" >
+    <h1 style="color: #f2aa4cff">Posture Monitor</h1>
+    <div class="main">
+      <div class="slidecontainer">
+        <p id="time">Time</p>
+        <input
+          id="strictness1"
+          type="range"
+          min="1"
+          max="2"
+          value="1.5"
+          step="0.2"
+          class="slider one"
+        />
+      </div>
+      <div class="slidecontainer2">
+        <p id="strict">Strictness</p>
+        <input
+          id="time1"
+          type="range"
+          min="10"
+          value="20"
+          step="10"
+          max="60"
+          class="slider two"
+        />
+      </div>
     </div>
-    </div> 
-    <div class="slidecontainer2">
-    <input id="time1" type="range" min="10" value="20" step="10" max="60" class="slider two"  >
-  </div>
 
+    <div class="start-btn">
+      <button id="Start">Start</button>
+      <!-- <button id="Stop">Stop</button></div> -->
+    </div>
+    <p id="sadge"></p>
   </body>
-  
-  <script> require('./render.js');</script>
+
+  <script>
+    require("./render.js");
+  </script>
 </html>

@@ -1,38 +1,34 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   margin: auto;
   min-width: 600px;
   padding: 2rem;
-  background-color: #101820FF;
-  
+  background-color: #101820ff;
 }
-h1,p{
+h1,
+p {
   font-size: 3em;
   text-align: center;
-  color:white;
+  color: white;
 }
-div.main{
+div.main {
   width: 100%;
   position: relative;
-  top: 500px;
-  
-
+  top: 100px;
 }
-div.main div{
+div.main div {
   display: flex;
   justify-content: space-between;
   width: 50%;
   margin-left: 850px;
-
 }
 button {
- 
-  
   display: inline-block;
   cursor: pointer;
   outline: none;
   border: none;
-  background-color: #F2AA4CFF;
+  background-color: #f2aa4cff;
   width: 200px;
   height: 200px;
   border-radius: 200px;
@@ -42,14 +38,13 @@ button {
   background-size: 100% 100%;
   /* box-shadow: #a677db; */
   margin-bottom: 15px;
-  
 }
 button:hover {
-  transform:scale(1.05);
+  transform: scale(1.05);
   cursor: pointer;
   outline: none;
   border: none;
-  background-color: #F2AA4CFF;
+  background-color: #f2aa4cff;
   width: 200px;
   height: 200px;
   border-radius: 200%;
@@ -59,12 +54,11 @@ button:hover {
   background-size: 100% 100%;
   /* box-shadow: # a677db; */
   margin-bottom: 15px;
-  
 }
 .slidecontainer {
   width: 100%;
 }
-.slider.one{
+.slider.one {
   position: absolute;
   bottom: 220%;
   right: 60%;
@@ -72,23 +66,21 @@ button:hover {
 
 .slider {
   -webkit-appearance: none;
-  
+
   width: 25%;
   height: 10px;
   background: white;
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
 }
 
 .slider:hover {
   opacity: 1;
 }
-.slider:hover::-webkit-slider-thumb{
-
+.slider:hover::-webkit-slider-thumb {
   transform: scale(1.2);
-  
 }
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -97,45 +89,41 @@ button:hover {
   height: 20px;
   border: none;
   border-radius: 50%;
- 
-  background: #F2AA4CFF;
+
+  background: #f2aa4cff;
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
   width: 10px;
   height: 10px;
-  background: #4CAF50;
+  background: #4caf50;
   cursor: pointer;
 }
 .slidecontainer2 {
   width: 100%;
 }
-.slider.two{
+.slider.two {
   position: absolute;
   bottom: 60%;
   left: 60%;
-
 }
 .slider {
-  
   -webkit-appearance: none;
   width: 25%;
   height: 10px;
   background: white;
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
 }
 
 .slider:hover {
   opacity: 1;
 }
-.slider:hover::-webkit-slider-thumb{
-
+.slider:hover::-webkit-slider-thumb {
   transform: scale(1.2);
-  
 }
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -144,28 +132,31 @@ button:hover {
   height: 20px;
   border: none;
   border-radius: 50%;
- 
-  background: #F2AA4CFF;
+
+  background: #f2aa4cff;
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
   width: 10px;
   height: 10px;
-  background: #4CAF50;
+  background: #4caf50;
   cursor: pointer;
 }
-#time{
+#time {
   font-size: 2em;
   position: absolute;
   bottom: 250%;
   right: 72%;
-
 }
-#strict{
+#strict {
   font-size: 2em;
   position: absolute;
   bottom: 250%;
   left: 70%;
+}
 
+.start-btn {
+  display: flex;
+  justify-content: center;
 }
