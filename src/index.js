@@ -58,6 +58,3 @@ app.on("activate", () => {
     createWindow();
   }
 });
-try {
-  require("electron-reloader")(module);
-} catch (_) {}

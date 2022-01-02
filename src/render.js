@@ -29,6 +29,7 @@ startBtn.addEventListener("click", (e) => {
   }
   const subprocess = runScript();
   subprocess.stdout.on("data", (data) => {
+    console.log(data);
     const convertedString = data.toString();
     if (convertedString.includes("BAD")) {
       const postureAlert = new Notification(
@@ -42,7 +43,7 @@ startBtn.addEventListener("click", (e) => {
         shell.openExternal("https://medlineplus.gov/guidetogoodposture.html");
       };
     }
-    sadge.innerHTML = `${data}`;
+    sadge.innerHTML = `Output: ${data}`;
   });
   subprocess.stderr.on("data", (data) => {
     console.log(`error:${data}`);
