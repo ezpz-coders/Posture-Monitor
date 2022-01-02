@@ -1,5 +1,5 @@
 {
-  "name": "my_app",
+  "name": "posture_monitor",
   "productName": "my_app",
   "version": "1.0.0",
   "description": "My Electron application description",
@@ -12,10 +12,6 @@
     "lint": "echo \"No linting configured\""
   },
   "keywords": [],
-  "author": {
-    "name": "Nirbhay Agrawal",
-    "email": "agrawalnirbhay@yahoo.com"
-  },
   "license": "MIT",
   "config": {
     "forge": {
@@ -45,6 +41,7 @@
     }
   },
   "dependencies": {
+    "electron-context-menu": "^3.1.1",
     "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {

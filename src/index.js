@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
+const contextMenu = require("electron-context-menu");
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
@@ -17,7 +18,15 @@ const createWindow = () => {
       contextIsolation: false,
     },
   });
-
+  contextMenu({
+    showSearchWithGoogle: false,
+    showCopyImage: false,
+    prepend: (defaultActions, params, browserWindow) => [
+      {
+        label: "Team Yolo ♥",
+      },
+    ],
+  });
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, "index.html"));
 

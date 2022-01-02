@@ -2,7 +2,7 @@ const path = require("path");
 console.log("js loaded");
 const { spawn } = require("child_process");
 const startBtn = document.getElementById("Start");
-const { oks } = require("electron");
+const { oks, shell } = require("electron");
 const { exec } = require("child_process");
 const sadge = document.getElementById("sadge");
 startBtn.addEventListener("click", (e) => {
@@ -28,13 +28,19 @@ startBtn.addEventListener("click", (e) => {
     ]);
   }
   const subprocess = runScript();
-  // print output of script
   subprocess.stdout.on("data", (data) => {
-    console.log(data);
-    if (data === "bad BAD") {
-      console.log("notifff");
-      new Notification("Seedha baith bsdk", { body: ";-;" });
-      // EZPZZZ
+    const convertedString = data.toString();
+    if (convertedString.includes("BAD")) {
+      const postureAlert = new Notification(
+        "Hey! Your current Posture is not healthy",
+        {
+          body: "For more information read https://medlineplus.gov/guidetogoodposture.html",
+        }
+      );
+      postureAlert.onclick = function (event) {
+        event.preventDefault();
+        shell.openExternal("https://medlineplus.gov/guidetogoodposture.html");
+      };
     }
     sadge.innerHTML = `data:${data}`;
   });
