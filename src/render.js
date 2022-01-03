@@ -27,11 +27,14 @@ startBtn.addEventListener("click", (e) => {
       "some value for foo",
     ]);
   }
+
+  let threshold = Date.now();
   const subprocess = runScript();
   subprocess.stdout.on("data", (data) => {
     console.log(data);
     const convertedString = data.toString();
-    if (convertedString.includes("BAD")) {
+    if (convertedString.includes("BAD") && Date.now() > threshold) {
+      threshold += Date.now() + 30 * 1000;
       const postureAlert = new Notification(
         "Hey! Your current Posture is not healthy",
         {
